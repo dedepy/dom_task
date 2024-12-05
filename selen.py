@@ -8,7 +8,7 @@ mail = os.getenv('mail')
 password = os.getenv('password')
 #Таймер для поиска элементов
 AUTH_TIMEOUT = 120
-def login():
+def do_task():
     driver = webdriver.Chrome()
     driver.get('https://px6.me/')
     wait = WebDriverWait(driver, AUTH_TIMEOUT)
@@ -49,7 +49,8 @@ def login():
     result = [item for item in arr if pattern.match(item)]
     for i in range (len(result)):
         print(result[i], ' - ', date[i].text)
+    driver.quit()
 
 
 
-login()
+do_task()
